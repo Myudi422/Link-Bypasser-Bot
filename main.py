@@ -64,7 +64,8 @@ def send_help(client: pyrogram.client.Client, message: pyrogram.types.messages_a
 
 
 # links
-@app.on_message(filters.text)
+#@app.on_message(filters.text)
+@app.on_message(filters.command(["bypass"]))
 def receive(client: pyrogram.client.Client, message: pyrogram.types.messages_and_media.message.Message):
     bypass = threading.Thread(target=lambda:loopthread(message),daemon=True)
     bypass.start()
